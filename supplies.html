@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="futuristic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harm Reduction Supplies - OutreachX</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/themes.css" rel="stylesheet">
+    <link href="assets/css/animations.css" rel="stylesheet">
+    <link href="assets/css/supplies.css" rel="stylesheet">
+</head>
+<body class="theme-futuristic">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="hud-loader">
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+            </div>
+            <h2 class="loading-text">LOADING SUPPLY INVENTORY</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark hud-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand hud-brand" href="index.html">
+                <div class="brand-icon animated-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span class="brand-text">OutreachX</span>
+            </a>
+            
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link hud-nav-link" href="client-dashboard.html">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a class="nav-link hud-nav-link" href="#" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="supplies-container">
+        <!-- Header Section -->
+        <section class="supplies-header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="supplies-title glitch-text" data-text="HARM REDUCTION SUPPLIES">
+                        HARM REDUCTION SUPPLIES
+                    </h1>
+                    <p class="supplies-subtitle">
+                        Secure ordering system with comprehensive inventory management
+                    </p>
+                    
+                    <!-- Order Status Bar -->
+                    <div class="order-status-bar hud-panel">
+                        <div class="status-item">
+                            <div class="status-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="status-info">
+                                <span class="status-label">Available Items</span>
+                                <span class="status-value" id="availableCount">24</span>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="status-info">
+                                <span class="status-label">Cart Items</span>
+                                <span class="status-value" id="cartCount">0</span>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="status-info">
+                                <span class="status-label">Pending Orders</span>
+                                <span class="status-value" id="pendingCount">1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter and Search -->
+        <section class="supplies-filters">
+            <div class="container">
+                <div class="filters-panel hud-panel">
+                    <div class="filter-group">
+                        <label class="hud-label">Search Supplies</label>
+                        <div class="search-input-group">
+                            <input type="text" class="form-control hud-input" id="searchInput" placeholder="Search by name, description...">
+                            <button class="btn hud-btn hud-btn-primary" id="searchBtn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="hud-label">Category</label>
+                        <select class="form-control hud-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="harm-reduction">Harm Reduction</option>
+                            <option value="safety">Safety Equipment</option>
+                            <option value="medical">Medical Supplies</option>
+                            <option value="hygiene">Hygiene Items</option>
+                            <option value="nutrition">Nutrition Support</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="hud-label">Availability</label>
+                        <select class="form-control hud-select" id="availabilityFilter">
+                            <option value="">All Items</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="low-stock">Low Stock</option>
+                            <option value="out-of-stock">Out of Stock</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-actions">
+                        <button class="btn hud-btn hud-btn-secondary" id="clearFiltersBtn">
+                            <i class="fas fa-times"></i> Clear Filters
+                        </button>
+                        <button class="btn hud-btn hud-btn-primary" id="viewCartBtn">
+                            <i class="fas fa-shopping-cart"></i> View Cart (<span id="cartIndicator">0</span>)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supplies Inventory -->
+        <section class="supplies-inventory">
+            <div class="container">
+                <div class="inventory-grid" id="inventoryGrid">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="load-more-section">
+                    <button class="btn hud-btn hud-btn-secondary" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i> Load More Items
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content hud-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-cart"></i>
+                        Your Supply Cart
+                    </h5>
+                    <button type="button" class="btn-close hud-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <!-- Cart items will be populated here -->
+                    </div>
+                    <div class="cart-empty" id="cartEmpty" style="display: none;">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h4>Your cart is empty</h4>
+                        <p>Add some supplies to your cart to get started.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="cart-summary">
+                        <div class="cart-total">
+                            Total Items: <span id="cartTotalItems">0</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn hud-btn hud-btn-secondary" data-bs-dismiss="modal">
+                        Continue Shopping
+                    </button>
+                    <button type="button" class="btn hud-btn hud-btn-primary" id="checkoutBtn" disabled>
+                        <i class="fas fa-check"></i> Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item Details Modal -->
+    <div class="modal fade" id="itemModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content hud-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itemModalTitle">Item Details</h5>
+                    <button type="button" class="btn-close hud-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="itemModalBody">
+                    <!-- Item details will be populated here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn hud-btn hud-btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn hud-btn hud-btn-primary" id="addToCartFromModal">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content hud-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title text-success">
+                        <i class="fas fa-check-circle"></i>
+                        Order Placed Successfully
+                    </h5>
+                    <button type="button" class="btn-close hud-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="order-confirmation">
+                        <div class="confirmation-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Order Confirmed!</h3>
+                        <p>Your order has been successfully placed and is being processed.</p>
+                        
+                        <div class="order-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Order ID:</span>
+                                <span class="detail-value" id="orderIdDisplay">#ORD-2024-001</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Estimated Pickup:</span>
+                                <span class="detail-value" id="pickupTimeDisplay">Tomorrow, 2:00 PM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Pickup Location:</span>
+                                <span class="detail-value">Downtown Outreach Center</span>
+                            </div>
+                        </div>
+                        
+                        <div class="confirmation-message">
+                            <p><strong>What happens next?</strong></p>
+                            <ul>
+                                <li>You'll receive a confirmation message</li>
+                                <li>Your supplies will be prepared for pickup</li>
+                                <li>We'll notify you when ready</li>
+                                <li>No identification required for pickup</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn hud-btn hud-btn-primary" data-bs-dismiss="modal">
+                        <i class="fas fa-check"></i> Got it
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Quick Order Panel -->
+    <div class="emergency-quick-order hud-panel" id="emergencyPanel">
+        <div class="emergency-header">
+            <h4><i class="fas fa-exclamation-triangle"></i> Emergency Supplies</h4>
+            <button class="close-emergency" id="closeEmergencyBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="emergency-items">
+            <button class="emergency-item-btn" data-item="naloxone">
+                <i class="fas fa-syringe"></i>
+                <span>Naloxone Kit</span>
+            </button>
+            <button class="emergency-item-btn" data-item="test-strips">
+                <i class="fas fa-vial"></i>
+                <span>Test Strips</span>
+            </button>
+            <button class="emergency-item-btn" data-item="first-aid">
+                <i class="fas fa-first-aid"></i>
+                <span>First Aid Kit</span>
+            </button>
+        </div>
+        <div class="emergency-footer">
+            <p>Critical supplies available 24/7</p>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="floating-actions">
+        <button class="fab emergency-fab" id="emergencyFab" title="Emergency Supplies">
+            <i class="fas fa-exclamation-triangle"></i>
+        </button>
+        <button class="fab cart-fab" id="cartFab" title="View Cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="fab-badge" id="fabCartCount">0</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/themes.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/supplies.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

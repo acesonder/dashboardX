@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="futuristic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - OutreachX</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/themes.css" rel="stylesheet">
+    <link href="assets/css/animations.css" rel="stylesheet">
+    <link href="assets/css/dashboard.css" rel="stylesheet">
+</head>
+<body class="theme-futuristic dashboard-body">
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark hud-navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand hud-brand" href="index.html">
+                <div class="brand-icon animated-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span class="brand-text">OutreachX</span>
+            </a>
+            
+            <div class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                <!-- Notifications -->
+                <div class="nav-item dropdown me-3">
+                    <a class="nav-link notification-bell" href="#" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end hud-dropdown">
+                        <h6 class="dropdown-header">Notifications</h6>
+                        <div class="notification-item">
+                            <i class="fas fa-message text-info"></i>
+                            <div class="notification-content">
+                                <span class="notification-text">New message from staff</span>
+                                <small class="notification-time">2 min ago</small>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <i class="fas fa-box text-success"></i>
+                            <div class="notification-content">
+                                <span class="notification-text">Supply order ready</span>
+                                <small class="notification-time">1 hour ago</small>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <i class="fas fa-calendar text-warning"></i>
+                            <div class="notification-content">
+                                <span class="notification-text">Appointment reminder</span>
+                                <small class="notification-time">3 hours ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Menu -->
+                <div class="nav-item dropdown">
+                    <a class="nav-link user-menu" href="#" data-bs-toggle="dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="user-name">Test Client</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end hud-dropdown">
+                        <a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> Profile</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item logout-btn" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar hud-panel">
+            <div class="sidebar-header">
+                <h4>CLIENT PORTAL</h4>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-link active" data-page="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#messaging" class="nav-link" data-page="messaging">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                    <span class="badge">2</span>
+                </a>
+                <a href="#supplies" class="nav-link" data-page="supplies">
+                    <i class="fas fa-box"></i>
+                    <span>Harm Reduction Supplies</span>
+                </a>
+                <a href="#ai-chat" class="nav-link" data-page="ai-chat">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Safety Monitor</span>
+                </a>
+                <a href="#assessments" class="nav-link" data-page="assessments">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Assessments</span>
+                </a>
+                <a href="#appointments" class="nav-link" data-page="appointments">
+                    <i class="fas fa-calendar"></i>
+                    <span>Appointments</span>
+                </a>
+                <a href="#documents" class="nav-link" data-page="documents">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Documents</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page active">
+                <div class="page-header">
+                    <h1 class="page-title">Dashboard</h1>
+                    <div class="page-actions">
+                        <button class="btn hud-btn hud-btn-secondary" id="refreshBtn">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Welcome Widget -->
+                    <div class="widget welcome-widget">
+                        <div class="widget-header">
+                            <h3>Welcome Back</h3>
+                            <div class="widget-time" id="currentTime"></div>
+                        </div>
+                        <div class="widget-content">
+                            <p>Stay safe and connected. Our team is here to support you 24/7.</p>
+                            <button class="btn hud-btn hud-btn-primary">
+                                <i class="fas fa-phone"></i> Emergency Contact
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Status Widget -->
+                    <div class="widget status-widget">
+                        <div class="widget-header">
+                            <h3>Safety Status</h3>
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="status-item">
+                                <span>AI Monitor:</span>
+                                <span class="status-active">Active</span>
+                            </div>
+                            <div class="status-item">
+                                <span>Emergency Contacts:</span>
+                                <span class="status-ready">Ready</span>
+                            </div>
+                            <div class="status-item">
+                                <span>Last Check-in:</span>
+                                <span class="status-recent">2 min ago</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messages Widget -->
+                    <div class="widget messages-widget">
+                        <div class="widget-header">
+                            <h3>Recent Messages</h3>
+                            <a href="#messaging" class="widget-action">View All</a>
+                        </div>
+                        <div class="widget-content">
+                            <div class="message-item">
+                                <div class="message-avatar">
+                                    <i class="fas fa-user-nurse"></i>
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-sender">Sarah (Outreach Staff)</div>
+                                    <div class="message-text">Hi! Just checking in. How are you doing today?</div>
+                                    <div class="message-time">5 min ago</div>
+                                </div>
+                            </div>
+                            <div class="message-item">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-sender">AI Safety Assistant</div>
+                                    <div class="message-text">Reminder: Stay hydrated and don't use alone.</div>
+                                    <div class="message-time">1 hour ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supply Orders Widget -->
+                    <div class="widget supplies-widget">
+                        <div class="widget-header">
+                            <h3>Supply Orders</h3>
+                            <a href="#supplies" class="widget-action">Order More</a>
+                        </div>
+                        <div class="widget-content">
+                            <div class="supply-order">
+                                <div class="order-status ready">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Ready for Pickup</span>
+                                </div>
+                                <div class="order-items">
+                                    <span>Harm Reduction Kit #HRK-2024-001</span>
+                                </div>
+                                <div class="order-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Downtown Outreach Center
+                                </div>
+                            </div>
+                            <div class="supply-order">
+                                <div class="order-status processing">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Processing</span>
+                                </div>
+                                <div class="order-items">
+                                    <span>Naloxone Kit x2, Clean Needles x10</span>
+                                </div>
+                                <div class="order-eta">
+                                    <i class="fas fa-calendar"></i>
+                                    Expected: Tomorrow 2PM
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Safety Widget -->
+                    <div class="widget ai-safety-widget">
+                        <div class="widget-header">
+                            <h3>AI Safety Monitor</h3>
+                            <div class="ai-status active">
+                                <div class="pulse-dot"></div>
+                                <span>Monitoring</span>
+                            </div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="safety-controls">
+                                <button class="btn safety-btn check-in" id="checkInBtn">
+                                    <i class="fas fa-heart"></i>
+                                    <span>I'm Safe</span>
+                                </button>
+                                <button class="btn safety-btn emergency" id="emergencyBtn">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Need Help</span>
+                                </button>
+                            </div>
+                            <div class="safety-tips">
+                                <h4>Safety Tip:</h4>
+                                <p>Remember to check in every 30 minutes when using substances alone. We're here to help.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions Widget -->
+                    <div class="widget quick-actions-widget">
+                        <div class="widget-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="action-grid">
+                                <button class="action-btn" data-page="messaging">
+                                    <i class="fas fa-comment"></i>
+                                    <span>Send Message</span>
+                                </button>
+                                <button class="action-btn" data-page="supplies">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Order Supplies</span>
+                                </button>
+                                <button class="action-btn" data-page="assessments">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <span>Complete Assessment</span>
+                                </button>
+                                <button class="action-btn" data-page="appointments">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span>Book Appointment</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messaging Page -->
+            <div id="messaging-page" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Messages</h1>
+                    <button class="btn hud-btn hud-btn-primary">
+                        <i class="fas fa-plus"></i> New Message
+                    </button>
+                </div>
+                
+                <div class="messaging-layout">
+                    <div class="conversations-list hud-panel">
+                        <h3>Conversations</h3>
+                        <div class="conversation-item active">
+                            <div class="conversation-avatar">
+                                <i class="fas fa-user-nurse"></i>
+                            </div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">Sarah (Outreach Staff)</div>
+                                <div class="conversation-preview">Hi! Just checking in...</div>
+                            </div>
+                            <div class="conversation-meta">
+                                <div class="conversation-time">5 min</div>
+                                <div class="unread-count">2</div>
+                            </div>
+                        </div>
+                        <div class="conversation-item">
+                            <div class="conversation-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">AI Safety Assistant</div>
+                                <div class="conversation-preview">Reminder: Stay hydrated...</div>
+                            </div>
+                            <div class="conversation-meta">
+                                <div class="conversation-time">1 hour</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-area hud-panel">
+                        <div class="chat-header">
+                            <div class="chat-title">Sarah (Outreach Staff)</div>
+                            <div class="chat-status">Online</div>
+                        </div>
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message received">
+                                <div class="message-content">Hi! Just checking in. How are you doing today?</div>
+                                <div class="message-time">14:32</div>
+                            </div>
+                            <div class="message received">
+                                <div class="message-content">Remember, I'm here if you need anything at all.</div>
+                                <div class="message-time">14:33</div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" class="form-control hud-input" placeholder="Type your message..." id="messageInput">
+                            <button class="btn hud-btn hud-btn-primary" id="sendMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Chat Page -->
+            <div id="ai-chat-page" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">AI Safety Monitor</h1>
+                    <div class="ai-status-header">
+                        <div class="status-indicator online"></div>
+                        <span>AI Assistant Active</span>
+                    </div>
+                </div>
+
+                <div class="ai-chat-container hud-panel">
+                    <div class="ai-chat-header">
+                        <div class="ai-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="ai-info">
+                            <h3>Safety Assistant</h3>
+                            <p>I'm here to help keep you safe. Check in with me regularly.</p>
+                        </div>
+                    </div>
+
+                    <div class="safety-dashboard">
+                        <div class="safety-stat">
+                            <div class="stat-value">127</div>
+                            <div class="stat-label">Check-ins Today</div>
+                        </div>
+                        <div class="safety-stat">
+                            <div class="stat-value">00:28</div>
+                            <div class="stat-label">Time Since Last Check</div>
+                        </div>
+                        <div class="safety-stat">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Emergency Contacts</div>
+                        </div>
+                    </div>
+
+                    <div class="safety-controls-expanded">
+                        <button class="btn safety-btn-large check-in">
+                            <i class="fas fa-heart"></i>
+                            <div class="btn-content">
+                                <span class="btn-title">I'm Safe</span>
+                                <span class="btn-subtitle">Quick check-in</span>
+                            </div>
+                        </button>
+                        <button class="btn safety-btn-large emergency">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div class="btn-content">
+                                <span class="btn-title">Need Help</span>
+                                <span class="btn-subtitle">Emergency assistance</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="ai-chat-area">
+                        <div class="chat-messages ai-messages" id="aiChatMessages">
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <p>Hello! I'm your AI Safety Assistant. I'm here to help monitor your wellbeing and provide support when you need it.</p>
+                                    <p>Remember to check in with me regularly, especially if you're using substances alone.</p>
+                                </div>
+                                <div class="message-time">10 min ago</div>
+                            </div>
+                        </div>
+                        <div class="ai-chat-input">
+                            <input type="text" class="form-control hud-input" placeholder="Talk to your AI assistant..." id="aiMessageInput">
+                            <button class="btn hud-btn hud-btn-primary" id="sendAiMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other pages would be implemented similarly... -->
+        </main>
+    </div>
+
+    <!-- Emergency Modal -->
+    <div class="modal fade" id="emergencyModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content hud-modal emergency-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Emergency Assistance
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <p class="emergency-text">We're here to help. What kind of assistance do you need?</p>
+                    <div class="emergency-options">
+                        <button class="btn btn-danger mb-2 w-100">
+                            <i class="fas fa-ambulance"></i>
+                            Medical Emergency (Call 911)
+                        </button>
+                        <button class="btn btn-warning mb-2 w-100">
+                            <i class="fas fa-phone"></i>
+                            Contact Emergency Contact
+                        </button>
+                        <button class="btn btn-info mb-2 w-100">
+                            <i class="fas fa-comment"></i>
+                            Chat with Staff
+                        </button>
+                        <button class="btn btn-secondary w-100" data-bs-dismiss="modal">
+                            <i class="fas fa-times"></i>
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/themes.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
