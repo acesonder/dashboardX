@@ -1,0 +1,585 @@
+/* Themes CSS - Multiple theme system for the Outreach Client Services Portal */
+
+/* Futuristic Theme - Dark Mode (Default) */
+[data-theme="futuristic"][data-mode="dark"] {
+    --bg-primary: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    --bg-secondary: rgba(0, 0, 0, 0.8);
+    --bg-tertiary: rgba(0, 212, 255, 0.05);
+    
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    
+    --accent-primary: #00d4ff;
+    --accent-secondary: #ff6b35;
+    --accent-tertiary: #00ff88;
+    
+    --border-color: rgba(0, 212, 255, 0.3);
+    --border-accent: #00d4ff;
+    
+    --shadow-primary: 0 0 20px rgba(0, 212, 255, 0.5);
+    --shadow-secondary: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    --overlay-color: rgba(0, 0, 0, 0.95);
+}
+
+[data-theme="futuristic"][data-mode="dark"] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+[data-theme="futuristic"][data-mode="dark"] .cyber-nav {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 46, 0.95) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="futuristic"][data-mode="dark"] .service-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="futuristic"][data-mode="dark"] .service-card:hover {
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Futuristic Theme - Light Mode */
+[data-theme="futuristic"][data-mode="light"] {
+    --bg-primary: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 50%, #cce7ff 100%);
+    --bg-secondary: rgba(255, 255, 255, 0.9);
+    --bg-tertiary: rgba(0, 212, 255, 0.08);
+    
+    --text-primary: #1a1a2e;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    
+    --accent-primary: #0099cc;
+    --accent-secondary: #ff4500;
+    --accent-tertiary: #00cc66;
+    
+    --border-color: rgba(0, 153, 204, 0.3);
+    --border-accent: #0099cc;
+    
+    --shadow-primary: 0 0 20px rgba(0, 153, 204, 0.3);
+    --shadow-secondary: 0 8px 32px rgba(0, 0, 0, 0.1);
+    
+    --overlay-color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="futuristic"][data-mode="light"] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+[data-theme="futuristic"][data-mode="light"] .cyber-nav {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(230, 243, 255, 0.95) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="futuristic"][data-mode="light"] .cyber-link {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="futuristic"][data-mode="light"] .cyber-link:hover {
+    color: var(--accent-primary) !important;
+}
+
+[data-theme="futuristic"][data-mode="light"] .service-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="futuristic"][data-mode="light"] .service-card:hover {
+    background: var(--bg-tertiary);
+    box-shadow: var(--shadow-primary);
+}
+
+[data-theme="futuristic"][data-mode="light"] .hero-section {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Steampunk Theme - Dark Mode */
+[data-theme="steampunk"][data-mode="dark"] {
+    --bg-primary: linear-gradient(135deg, #2c1810 0%, #3d2817 50%, #4a3018 100%);
+    --bg-secondary: rgba(44, 24, 16, 0.9);
+    --bg-tertiary: rgba(205, 127, 50, 0.1);
+    
+    --text-primary: #f4e4bc;
+    --text-secondary: rgba(244, 228, 188, 0.9);
+    --text-muted: rgba(244, 228, 188, 0.7);
+    
+    --accent-primary: #cd7f32;
+    --accent-secondary: #b8860b;
+    --accent-tertiary: #daa520;
+    
+    --border-color: rgba(205, 127, 50, 0.4);
+    --border-accent: #cd7f32;
+    
+    --shadow-primary: 0 0 20px rgba(205, 127, 50, 0.4);
+    --shadow-secondary: 0 8px 32px rgba(0, 0, 0, 0.5);
+    
+    --overlay-color: rgba(44, 24, 16, 0.95);
+}
+
+[data-theme="steampunk"][data-mode="dark"] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Times New Roman', serif;
+}
+
+[data-theme="steampunk"][data-mode="dark"] .cyber-nav {
+    background: linear-gradient(90deg, rgba(44, 24, 16, 0.9) 0%, rgba(61, 40, 23, 0.95) 100%);
+    border-bottom: 2px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+}
+
+[data-theme="steampunk"][data-mode="dark"] .service-card {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    position: relative;
+}
+
+[data-theme="steampunk"][data-mode="dark"] .service-card::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 1px solid rgba(205, 127, 50, 0.2);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+[data-theme="steampunk"][data-mode="dark"] .service-card:hover {
+    background: rgba(205, 127, 50, 0.15);
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-5px);
+}
+
+[data-theme="steampunk"][data-mode="dark"] .cyber-btn {
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-primary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Steampunk Theme - Light Mode */
+[data-theme="steampunk"][data-mode="light"] {
+    --bg-primary: linear-gradient(135deg, #f5e6d3 0%, #e8d5b7 50%, #d4af8c 100%);
+    --bg-secondary: rgba(245, 230, 211, 0.95);
+    --bg-tertiary: rgba(139, 69, 19, 0.1);
+    
+    --text-primary: #4a3018;
+    --text-secondary: #5d4037;
+    --text-muted: #795548;
+    
+    --accent-primary: #8b4513;
+    --accent-secondary: #a0522d;
+    --accent-tertiary: #cd853f;
+    
+    --border-color: rgba(139, 69, 19, 0.4);
+    --border-accent: #8b4513;
+    
+    --shadow-primary: 0 0 20px rgba(139, 69, 19, 0.3);
+    --shadow-secondary: 0 8px 32px rgba(0, 0, 0, 0.2);
+    
+    --overlay-color: rgba(245, 230, 211, 0.95);
+}
+
+[data-theme="steampunk"][data-mode="light"] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Times New Roman', serif;
+}
+
+[data-theme="steampunk"][data-mode="light"] .cyber-nav {
+    background: linear-gradient(90deg, rgba(245, 230, 211, 0.95) 0%, rgba(232, 213, 183, 0.95) 100%);
+    border-bottom: 2px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+}
+
+[data-theme="steampunk"][data-mode="light"] .service-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    color: var(--text-primary);
+}
+
+[data-theme="steampunk"][data-mode="light"] .service-card:hover {
+    background: var(--bg-tertiary);
+    box-shadow: var(--shadow-primary);
+}
+
+[data-theme="steampunk"][data-mode="light"] .hero-section {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+[data-theme="steampunk"][data-mode="light"] .cyber-link {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="steampunk"][data-mode="light"] .cyber-link:hover {
+    color: var(--accent-primary) !important;
+}
+
+/* Hacker Theme - Dark Mode */
+[data-theme="hacker"][data-mode="dark"] {
+    --bg-primary: linear-gradient(135deg, #000000 0%, #0d1117 50%, #161b22 100%);
+    --bg-secondary: rgba(0, 0, 0, 0.9);
+    --bg-tertiary: rgba(0, 255, 0, 0.05);
+    
+    --text-primary: #00ff00;
+    --text-secondary: rgba(0, 255, 0, 0.8);
+    --text-muted: rgba(0, 255, 0, 0.6);
+    
+    --accent-primary: #00ff00;
+    --accent-secondary: #ff0040;
+    --accent-tertiary: #ffff00;
+    
+    --border-color: rgba(0, 255, 0, 0.3);
+    --border-accent: #00ff00;
+    
+    --shadow-primary: 0 0 20px rgba(0, 255, 0, 0.5);
+    --shadow-secondary: 0 8px 32px rgba(0, 0, 0, 0.5);
+    
+    --overlay-color: rgba(0, 0, 0, 0.98);
+}
+
+[data-theme="hacker"][data-mode="dark"] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Courier New', 'Monaco', monospace;
+}
+
+[data-theme="hacker"][data-mode="dark"] .cyber-nav {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(13, 17, 23, 0.95) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="hacker"][data-mode="dark"] .service-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    font-family: 'Courier New', monospace;
+}
+
+[data-theme="hacker"][data-mode="dark"] .service-card:hover {
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: var(--shadow-primary);
+}
+
+[data-theme="hacker"][data-mode="dark"] .cyber-btn {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+}
+
+[data-theme="hacker"][data-mode="dark"] .cyber-btn:hover {
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--accent-primary);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Hacker Theme - Light Mode */
+[data-theme="hacker"][data-mode="light"] {
+    --bg-primary: linear-gradient(135deg, #f0f6f0 0%, #e8f5e8 50%, #d4f0d4 100%);
+    --bg-secondary: rgba(240, 246, 240, 0.95);
+    --bg-tertiary: rgba(0, 128, 0, 0.08);
+    
+    --text-primary: #003300;
+    --text-secondary: #006600;
+    --text-muted: #009900;
+    
+    --accent-primary: #008000;
+    --accent-secondary: #cc0000;
+    --accent-tertiary: #ff6600;
+    
+    --border-color: rgba(0, 128, 0, 0.3);
+    --border-accent: #008000;
+    
+    --shadow-primary: 0 0 20px rgba(0, 128, 0, 0.3);
+    --shadow-secondary: 0 8px 32px rgba(0, 0, 0, 0.1);
+    
+    --overlay-color: rgba(240, 246, 240, 0.95);
+}
+
+[data-theme="hacker"][data-mode="light"] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Courier New', 'Monaco', monospace;
+}
+
+[data-theme="hacker"][data-mode="light"] .cyber-nav {
+    background: linear-gradient(90deg, rgba(240, 246, 240, 0.95) 0%, rgba(232, 245, 232, 0.95) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="hacker"][data-mode="light"] .cyber-link {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="hacker"][data-mode="light"] .cyber-link:hover {
+    color: var(--accent-primary) !important;
+}
+
+[data-theme="hacker"][data-mode="light"] .service-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="hacker"][data-mode="light"] .service-card:hover {
+    background: var(--bg-tertiary);
+    box-shadow: var(--shadow-primary);
+}
+
+[data-theme="hacker"][data-mode="light"] .hero-section {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Theme-specific Icon Colors */
+[data-theme="futuristic"] .service-icon i {
+    color: var(--accent-primary);
+}
+
+[data-theme="steampunk"] .service-icon i {
+    color: var(--accent-primary);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+[data-theme="hacker"] .service-icon i {
+    color: var(--accent-primary);
+    text-shadow: 0 0 10px currentColor;
+}
+
+/* Theme-specific Button Styles */
+[data-theme="futuristic"] .btn-primary {
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    border-color: var(--accent-primary);
+    color: #000;
+}
+
+[data-theme="steampunk"] .btn-primary {
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    border: 2px solid var(--accent-primary);
+    color: var(--text-primary);
+    border-radius: 25px;
+}
+
+[data-theme="hacker"] .btn-primary {
+    background: transparent;
+    border: 2px solid var(--accent-primary);
+    color: var(--accent-primary);
+    font-family: 'Courier New', monospace;
+}
+
+[data-theme="hacker"] .btn-primary:hover {
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--accent-primary);
+}
+
+/* Theme-specific Alert Styles */
+[data-theme="futuristic"] .alert-warning {
+    background: rgba(255, 170, 0, 0.1);
+    border: 2px solid #ffaa00;
+    color: var(--text-primary);
+}
+
+[data-theme="steampunk"] .alert-warning {
+    background: rgba(218, 165, 32, 0.15);
+    border: 2px solid #daa520;
+    color: var(--text-primary);
+    border-radius: 15px;
+}
+
+[data-theme="hacker"] .alert-warning {
+    background: rgba(255, 255, 0, 0.1);
+    border: 1px solid #ffff00;
+    color: var(--text-primary);
+    font-family: 'Courier New', monospace;
+}
+
+/* Theme-specific Navigation Styles */
+[data-theme="futuristic"] .navbar-brand,
+[data-theme="futuristic"] .home-icon {
+    color: var(--accent-primary);
+}
+
+[data-theme="steampunk"] .navbar-brand,
+[data-theme="steampunk"] .home-icon {
+    color: var(--accent-primary);
+}
+
+[data-theme="hacker"] .navbar-brand,
+[data-theme="hacker"] .home-icon {
+    color: var(--accent-primary);
+    text-shadow: 0 0 10px currentColor;
+}
+
+/* Theme-specific Floating Action Button Styles */
+[data-theme="futuristic"] .fab {
+    background: var(--accent-primary);
+    color: #000;
+}
+
+[data-theme="steampunk"] .fab {
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-primary);
+    border: 2px solid var(--accent-primary);
+}
+
+[data-theme="hacker"] .fab {
+    background: var(--accent-primary);
+    color: #000;
+    border: 1px solid var(--accent-primary);
+}
+
+/* Theme-specific Chat Bubble Styles */
+[data-theme="futuristic"] .ai-chat-bubble {
+    background: var(--overlay-color);
+    border: 2px solid var(--accent-primary);
+}
+
+[data-theme="steampunk"] .ai-chat-bubble {
+    background: var(--overlay-color);
+    border: 2px solid var(--accent-primary);
+    border-radius: 15px;
+}
+
+[data-theme="hacker"] .ai-chat-bubble {
+    background: var(--overlay-color);
+    border: 1px solid var(--accent-primary);
+    font-family: 'Courier New', monospace;
+}
+
+/* Theme-specific Loading Screen */
+[data-theme="futuristic"] .loading-screen {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+[data-theme="steampunk"] .loading-screen {
+    background: linear-gradient(135deg, #2c1810 0%, #3d2817 50%, #4a3018 100%);
+}
+
+[data-theme="hacker"] .loading-screen {
+    background: linear-gradient(135deg, #000000 0%, #0d1117 50%, #161b22 100%);
+}
+
+/* Theme-specific Text Shadow Effects */
+[data-theme="futuristic"] .hero-title {
+    text-shadow: 0 0 20px var(--accent-primary);
+}
+
+[data-theme="steampunk"] .hero-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-primary);
+}
+
+[data-theme="hacker"] .hero-title {
+    text-shadow: 0 0 20px var(--accent-primary);
+    font-family: 'Courier New', monospace;
+}
+
+/* Theme-specific Section Titles */
+[data-theme="futuristic"] .section-title {
+    color: var(--accent-primary);
+    text-shadow: 0 0 20px var(--accent-primary);
+}
+
+[data-theme="steampunk"] .section-title {
+    color: var(--accent-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="hacker"] .section-title {
+    color: var(--accent-primary);
+    text-shadow: 0 0 20px var(--accent-primary);
+    font-family: 'Courier New', monospace;
+}
+
+/* Custom Scrollbar for Each Theme */
+[data-theme="futuristic"] ::-webkit-scrollbar {
+    width: 8px;
+}
+
+[data-theme="futuristic"] ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="futuristic"] ::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 4px;
+}
+
+[data-theme="steampunk"] ::-webkit-scrollbar {
+    width: 12px;
+}
+
+[data-theme="steampunk"] ::-webkit-scrollbar-track {
+    background: rgba(44, 24, 16, 0.5);
+    border-radius: 6px;
+}
+
+[data-theme="steampunk"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 6px;
+    border: 1px solid var(--accent-primary);
+}
+
+[data-theme="hacker"] ::-webkit-scrollbar {
+    width: 10px;
+}
+
+[data-theme="hacker"] ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="hacker"] ::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    box-shadow: 0 0 5px var(--accent-primary);
+}
+
+/* Theme Transition Effects */
+body {
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.cyber-nav,
+.service-card,
+.cyber-btn,
+.ai-chat-bubble {
+    transition: all 0.5s ease;
+}
+
+/* Accessibility Improvements */
+@media (prefers-high-contrast: high) {
+    [data-theme] {
+        --border-color: currentColor;
+        --shadow-primary: none;
+        --shadow-secondary: none;
+    }
+    
+    .service-card,
+    .cyber-btn {
+        border-width: 3px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    [data-theme="futuristic"]:not([data-mode]) {
+        /* Default to dark mode if system prefers dark */
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    [data-theme="futuristic"]:not([data-mode]) {
+        /* Apply light mode variables if system prefers light */
+    }
+}
