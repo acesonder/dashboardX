@@ -1,0 +1,400 @@
+/* OutreachX - Theme System */
+/* Multiple themes with light/dark variants */
+
+/* Futuristic Theme (Default) */
+.theme-futuristic {
+  --primary-color: #00ffff;
+  --secondary-color: #0080ff;
+  --accent-color: #ff6600;
+  --success-color: #00ff88;
+  --warning-color: #ffaa00;
+  --danger-color: #ff4444;
+  --dark-bg: #0a0a0f;
+  --darker-bg: #050508;
+  --panel-bg: rgba(0, 255, 255, 0.05);
+  --border-glow: rgba(0, 255, 255, 0.3);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --shadow-color: rgba(0, 255, 255, 0.2);
+}
+
+.theme-futuristic.light {
+  --dark-bg: #f0f8ff;
+  --darker-bg: #e6f3ff;
+  --panel-bg: rgba(0, 255, 255, 0.1);
+  --border-glow: rgba(0, 255, 255, 0.4);
+  --text-primary: #1a1a1f;
+  --text-secondary: #404040;
+  --shadow-color: rgba(0, 255, 255, 0.3);
+}
+
+/* Steampunk Theme */
+.theme-steampunk {
+  --primary-color: #ff8800;
+  --secondary-color: #cc6600;
+  --accent-color: #ffaa00;
+  --success-color: #88cc44;
+  --warning-color: #ffcc00;
+  --danger-color: #cc4444;
+  --dark-bg: #2a1810;
+  --darker-bg: #1a0f08;
+  --panel-bg: rgba(255, 136, 0, 0.05);
+  --border-glow: rgba(255, 136, 0, 0.3);
+  --text-primary: #f5e6d3;
+  --text-secondary: #b8a690;
+  --shadow-color: rgba(255, 136, 0, 0.2);
+}
+
+.theme-steampunk.light {
+  --dark-bg: #f5e6d3;
+  --darker-bg: #ebe1ce;
+  --panel-bg: rgba(255, 136, 0, 0.1);
+  --border-glow: rgba(255, 136, 0, 0.4);
+  --text-primary: #2a1810;
+  --text-secondary: #5a4030;
+  --shadow-color: rgba(255, 136, 0, 0.3);
+}
+
+/* Hacker Theme */
+.theme-hacker {
+  --primary-color: #00ff00;
+  --secondary-color: #88ff00;
+  --accent-color: #ffff00;
+  --success-color: #00cc88;
+  --warning-color: #ccff00;
+  --danger-color: #ff6644;
+  --dark-bg: #001100;
+  --darker-bg: #000800;
+  --panel-bg: rgba(0, 255, 0, 0.05);
+  --border-glow: rgba(0, 255, 0, 0.3);
+  --text-primary: #00ff00;
+  --text-secondary: #88cc88;
+  --shadow-color: rgba(0, 255, 0, 0.2);
+}
+
+.theme-hacker.light {
+  --dark-bg: #f0fff0;
+  --darker-bg: #e8ffe8;
+  --panel-bg: rgba(0, 255, 0, 0.1);
+  --border-glow: rgba(0, 255, 0, 0.4);
+  --text-primary: #001100;
+  --text-secondary: #004400;
+  --shadow-color: rgba(0, 255, 0, 0.3);
+}
+
+/* Theme-specific updates */
+body {
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(circle at 25% 25%, var(--panel-bg) 0%, transparent 25%),
+    radial-gradient(circle at 75% 75%, var(--panel-bg) 0%, transparent 25%);
+}
+
+/* Update primary colors throughout the interface */
+.hud-navbar {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), var(--darker-bg));
+  border-bottom: 1px solid var(--border-glow);
+}
+
+.brand-icon {
+  border-color: var(--primary-color);
+  background: var(--panel-bg);
+}
+
+.hud-nav-link:hover {
+  color: var(--primary-color) !important;
+  background: var(--panel-bg);
+  box-shadow: 0 0 var(--glow-size) var(--shadow-color);
+}
+
+.hero-title {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hud-btn-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.hud-btn-primary:hover {
+  background: var(--primary-color);
+  color: var(--darker-bg);
+  box-shadow: 0 0 30px var(--shadow-color);
+}
+
+.hud-btn-secondary:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 20px var(--shadow-color);
+}
+
+.hud-panel {
+  background: var(--panel-bg);
+  border-color: var(--border-glow);
+}
+
+.hud-panel:before {
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.panel-header h3 {
+  color: var(--primary-color);
+}
+
+.section-title {
+  color: var(--primary-color);
+}
+
+.title-underline {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.service-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+.service-icon {
+  border-color: var(--border-glow);
+  color: var(--primary-color);
+  background: var(--panel-bg);
+}
+
+.service-card:hover .service-icon {
+  background: var(--panel-bg);
+  box-shadow: 0 0 30px var(--shadow-color);
+}
+
+.hud-modal .modal-content {
+  background: var(--panel-bg);
+  border-color: var(--border-glow);
+}
+
+.hud-modal .modal-header {
+  border-bottom-color: var(--border-glow);
+  background: linear-gradient(90deg, var(--panel-bg), transparent);
+}
+
+.hud-modal .modal-title {
+  color: var(--primary-color);
+}
+
+.hud-close:hover {
+  color: var(--primary-color);
+}
+
+.hud-tabs .nav-link {
+  border-color: var(--border-glow);
+}
+
+.hud-tabs .nav-link.active {
+  background: var(--panel-bg);
+  color: var(--primary-color);
+}
+
+.hud-label {
+  color: var(--primary-color);
+}
+
+.hud-input,
+.hud-select {
+  border-color: var(--border-glow);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hud-input:focus,
+.hud-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px var(--shadow-color);
+}
+
+.forgot-link:hover {
+  color: var(--primary-color);
+}
+
+.theme-toggle {
+  background: var(--panel-bg);
+  border-color: var(--border-glow);
+  color: var(--primary-color);
+}
+
+.theme-toggle:hover {
+  background: var(--panel-bg);
+  box-shadow: 0 0 20px var(--shadow-color);
+}
+
+.theme-options {
+  background: var(--panel-bg);
+  border-color: var(--border-glow);
+}
+
+.theme-option:hover {
+  background: var(--panel-bg);
+}
+
+.particle {
+  background: var(--primary-color);
+  box-shadow: 0 0 6px var(--primary-color);
+}
+
+/* Theme-specific particle effects */
+.theme-steampunk .particle {
+  background: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+  animation: steamPuff 2s infinite ease-in-out;
+}
+
+.theme-hacker .particle {
+  background: var(--primary-color);
+  box-shadow: 0 0 4px var(--primary-color);
+  animation: matrixFall 3s linear infinite;
+}
+
+/* Steampunk specific elements */
+.theme-steampunk .hud-panel {
+  border-radius: 8px;
+  position: relative;
+}
+
+.theme-steampunk .hud-panel:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  animation: steamGlow 2s infinite ease-in-out;
+}
+
+.theme-steampunk .service-icon {
+  border-radius: 8px;
+}
+
+.theme-steampunk .hud-btn {
+  border-radius: 8px;
+  position: relative;
+}
+
+.theme-steampunk .hud-btn:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--accent-color), var(--primary-color), var(--secondary-color));
+  z-index: -1;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-steampunk .hud-btn:hover:before {
+  opacity: 0.3;
+}
+
+/* Hacker specific elements */
+.theme-hacker .hero-title {
+  animation: hackerGlitch 3s infinite;
+}
+
+.theme-hacker .hud-panel {
+  font-family: 'Courier New', monospace;
+  position: relative;
+}
+
+.theme-hacker .hud-panel:before {
+  content: '> ';
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  color: var(--primary-color);
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+.theme-hacker .service-card h3:before {
+  content: '$ ';
+  color: var(--secondary-color);
+}
+
+/* Additional theme animations */
+@keyframes steamPuff {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  50% { transform: scale(1.5) rotate(180deg); opacity: 0.3; }
+}
+
+@keyframes steamGlow {
+  0%, 100% { box-shadow: 0 0 5px var(--accent-color); }
+  50% { box-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--primary-color); }
+}
+
+@keyframes matrixFall {
+  0% { transform: translateY(-100vh); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes hackerGlitch {
+  0%, 90%, 100% { text-shadow: none; }
+  5% { text-shadow: 2px 0 var(--secondary-color), -2px 0 var(--accent-color); }
+  10% { text-shadow: -2px 0 var(--secondary-color), 2px 0 var(--accent-color); }
+  15% { text-shadow: 1px 0 var(--secondary-color), -1px 0 var(--accent-color); }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Light theme adjustments */
+.light .hero-section {
+  background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+}
+
+.light .services-section {
+  background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+}
+
+.light .hud-input,
+.light .hud-select {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+}
+
+.light .status-item {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Theme transition effects */
+* {
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Custom scrollbar for themes */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--darker-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}

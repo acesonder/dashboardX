@@ -1,0 +1,510 @@
+/* OutreachX - Advanced Animations */
+/* Watch Dogs / Cyberpunk inspired effects */
+
+/* Circuit effects and sparks */
+.circuit-effect {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  animation: circuitPulse 2s infinite linear;
+}
+
+.spark-effect {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  animation: sparkFly 1s ease-out forwards;
+}
+
+/* HUD scanning lines */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  animation: scanMove 3s infinite ease-in-out;
+}
+
+/* Holographic effects */
+.holographic {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: holographicSweep 3s infinite;
+  z-index: 1;
+}
+
+/* Data stream effects */
+.data-stream {
+  position: absolute;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--primary-color);
+  opacity: 0.3;
+  white-space: nowrap;
+  animation: dataFlow 5s linear infinite;
+}
+
+/* Glitch effects */
+.glitch-container {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-container:before,
+.glitch-container:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-container:before {
+  animation: glitch-1 0.3s infinite;
+  color: var(--danger-color);
+  z-index: -1;
+}
+
+.glitch-container:after {
+  animation: glitch-2 0.3s infinite;
+  color: var(--secondary-color);
+  z-index: -2;
+}
+
+/* Loading sequences */
+.loading-sequence {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  animation: loadingBounce 1.4s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.loading-dot:nth-child(2) { animation-delay: -0.16s; }
+.loading-dot:nth-child(3) { animation-delay: 0; }
+
+/* HUD interface animations */
+.hud-appear {
+  animation: hudSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hud-disappear {
+  animation: hudSlideOut 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+/* Button press effects */
+.btn-press {
+  animation: buttonPress 0.1s ease;
+}
+
+/* Card flip effects */
+.card-flip {
+  perspective: 1000px;
+}
+
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front,
+.card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Pulse rings */
+.pulse-ring {
+  position: absolute;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+/* Energy orb effects */
+.energy-orb {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-color), transparent);
+  animation: energyPulse 2s infinite ease-in-out;
+}
+
+.energy-orb:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbCore 3s infinite linear;
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Matrix rain effect */
+.matrix-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.matrix-char {
+  position: absolute;
+  font-family: 'Courier New', monospace;
+  color: var(--primary-color);
+  font-size: 14px;
+  animation: matrixDrop 3s linear infinite;
+  opacity: 0.7;
+}
+
+/* Typing effect */
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid var(--primary-color);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Shockwave effect */
+.shockwave {
+  position: absolute;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: shockwaveExpand 0.6s ease-out;
+}
+
+/* Hexagon grid pattern */
+.hex-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 25%, transparent 20%, rgba(0, 255, 255, 0.1) 21%, rgba(0, 255, 255, 0.1) 30%, transparent 31%),
+    radial-gradient(circle at 75% 75%, transparent 20%, rgba(0, 255, 255, 0.1) 21%, rgba(0, 255, 255, 0.1) 30%, transparent 31%);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: hexShift 10s linear infinite;
+}
+
+/* Neon glow text */
+.neon-glow {
+  color: var(--primary-color);
+  text-shadow: 
+    0 0 5px var(--primary-color),
+    0 0 10px var(--primary-color),
+    0 0 15px var(--primary-color),
+    0 0 20px var(--primary-color);
+  animation: neonFlicker 2s infinite alternate;
+}
+
+/* Progress bar with segments */
+.segmented-progress {
+  display: flex;
+  gap: 2px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-segment {
+  flex: 1;
+  background: var(--border-glow);
+  opacity: 0.3;
+  animation: progressFill 0.5s ease forwards;
+}
+
+.progress-segment.active {
+  background: var(--primary-color);
+  opacity: 1;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Floating particles */
+.floating-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  animation: floatingMotion 6s infinite linear;
+  box-shadow: 0 0 6px var(--primary-color);
+}
+
+/* Scanner sweep */
+.scanner-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanner-sweep:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+  animation: scannerMove 2s infinite linear;
+  transform: translateX(-100%);
+}
+
+/* Keyframe Animations */
+@keyframes circuitPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.5); }
+}
+
+@keyframes sparkFly {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(100px, -50px) scale(0); opacity: 0; }
+}
+
+@keyframes scanMove {
+  0% { top: 0; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes holographicSweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes dataFlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(-2px); }
+  60% { transform: translateX(2px); }
+  80% { transform: translateX(2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(-2px); }
+}
+
+@keyframes loadingBounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+@keyframes hudSlideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hudSlideOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-30px); }
+}
+
+@keyframes buttonPress {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.33); opacity: 1; }
+  80%, 100% { transform: scale(1); opacity: 0; }
+}
+
+@keyframes energyPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes orbCore {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes matrixDrop {
+  0% { transform: translateY(-100vh); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary-color); }
+}
+
+@keyframes shockwaveExpand {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes hexShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+@keyframes neonFlicker {
+  0%, 100% { 
+    text-shadow: 
+      0 0 5px var(--primary-color),
+      0 0 10px var(--primary-color),
+      0 0 15px var(--primary-color),
+      0 0 20px var(--primary-color);
+  }
+  50% {
+    text-shadow: 
+      0 0 2px var(--primary-color),
+      0 0 5px var(--primary-color),
+      0 0 8px var(--primary-color),
+      0 0 12px var(--primary-color);
+  }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes floatingMotion {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  33% { transform: translate(30px, -30px) rotate(120deg); opacity: 0.7; }
+  66% { transform: translate(-20px, 20px) rotate(240deg); opacity: 0.7; }
+  100% { transform: translate(0, 0) rotate(360deg); opacity: 1; }
+}
+
+@keyframes scannerMove {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Hover state animations */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Entrance animations */
+.fade-in { animation: fadeIn 0.6s ease forwards; }
+.slide-in-left { animation: slideInLeft 0.6s ease forwards; }
+.slide-in-right { animation: slideInRight 0.6s ease forwards; }
+.slide-in-up { animation: slideInUp 0.6s ease forwards; }
+.slide-in-down { animation: slideInDown 0.6s ease forwards; }
+.zoom-in { animation: zoomIn 0.6s ease forwards; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}

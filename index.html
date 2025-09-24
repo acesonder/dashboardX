@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="futuristic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutreachX - Client Services Portal</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/themes.css" rel="stylesheet">
+    <link href="assets/css/animations.css" rel="stylesheet">
+</head>
+<body class="theme-futuristic">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="hud-loader">
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+            </div>
+            <h2 class="loading-text">INITIALIZING OUTREACH SYSTEM</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark hud-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand hud-brand" href="#">
+                <div class="brand-icon animated-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span class="brand-text">OutreachX</span>
+            </a>
+            
+            <button class="navbar-toggler hud-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link hud-nav-link" href="#home">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hud-nav-link" href="#services">
+                            <i class="fas fa-medical-kit"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hud-nav-link" href="#about">
+                            <i class="fas fa-info-circle"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hud-nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="fas fa-sign-in-alt"></i> Access Portal
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hud-overlay"></div>
+        <div class="particle-system" id="particles"></div>
+        
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title glitch-text" data-text="OUTREACH CLIENT SERVICES">
+                            OUTREACH CLIENT SERVICES
+                        </h1>
+                        <p class="hero-subtitle">
+                            Comprehensive harm reduction and support services with advanced security protocols
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn hud-btn hud-btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                <span class="btn-text">ACCESS PORTAL</span>
+                                <div class="btn-glow"></div>
+                            </button>
+                            <button class="btn hud-btn hud-btn-secondary" onclick="scrollToSection('services')">
+                                <span class="btn-text">LEARN MORE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-dashboard">
+                        <div class="dashboard-preview">
+                            <div class="hud-panel">
+                                <div class="panel-header">
+                                    <h3>SYSTEM STATUS</h3>
+                                </div>
+                                <div class="status-grid">
+                                    <div class="status-item">
+                                        <div class="status-icon online">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <span>Services Online</span>
+                                    </div>
+                                    <div class="status-item">
+                                        <div class="status-icon online">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <span>Security Active</span>
+                                    </div>
+                                    <div class="status-item">
+                                        <div class="status-icon online">
+                                            <i class="fas fa-heartbeat"></i>
+                                        </div>
+                                        <span>Health Monitor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AVAILABLE SERVICES</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card hud-panel">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3>Intake Assessment</h3>
+                        <p>Comprehensive assessment forms with encrypted data protection</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card hud-panel">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Direct Messaging</h3>
+                        <p>Secure communication with real-time notifications and emergency features</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card hud-panel">
+                        <div class="service-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h3>Harm Reduction Supplies</h3>
+                        <p>Online ordering system with comprehensive inventory management</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card hud-panel">
+                        <div class="service-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <h3>Case Management</h3>
+                        <p>Digital case files with secure document management</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card hud-panel">
+                        <div class="service-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Incident Reporting</h3>
+                        <p>Quick incident documentation with automated routing</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card hud-panel">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Safety Monitor</h3>
+                        <p>24/7 monitoring with emergency response capabilities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content hud-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">SYSTEM ACCESS</h5>
+                    <button type="button" class="btn-close hud-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="auth-tabs">
+                        <ul class="nav nav-tabs hud-tabs" id="authTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link hud-tab active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">LOGIN</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link hud-tab" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">REGISTER</button>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content" id="authTabsContent">
+                            <!-- Login Tab -->
+                            <div class="tab-pane fade show active" id="login" role="tabpanel">
+                                <form id="loginForm" class="auth-form">
+                                    <div class="form-group">
+                                        <label class="hud-label">Username</label>
+                                        <input type="text" class="form-control hud-input" id="loginUsername" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="hud-label">Password</label>
+                                        <input type="password" class="form-control hud-input" id="loginPassword" required>
+                                    </div>
+                                    <div class="form-options">
+                                        <a href="#" class="forgot-link" onclick="showForgotPassword()">Forgot Password?</a>
+                                    </div>
+                                    <button type="submit" class="btn hud-btn hud-btn-primary w-100">
+                                        <span class="btn-text">ACCESS GRANTED</span>
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <!-- Register Tab -->
+                            <div class="tab-pane fade" id="register" role="tabpanel">
+                                <form id="registerForm" class="auth-form">
+                                    <div class="form-group">
+                                        <label class="hud-label">Username</label>
+                                        <input type="text" class="form-control hud-input" id="regUsername" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="hud-label">Email</label>
+                                        <input type="email" class="form-control hud-input" id="regEmail" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="hud-label">Password</label>
+                                        <input type="password" class="form-control hud-input" id="regPassword" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="hud-label">User Role</label>
+                                        <select class="form-control hud-select" id="regRole" required>
+                                            <option value="">Select Role</option>
+                                            <option value="client">Client</option>
+                                            <option value="staff">Outreach Staff</option>
+                                            <option value="provider">Service Provider</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn hud-btn hud-btn-primary w-100">
+                                        <span class="btn-text">CREATE ACCOUNT</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="theme-options" id="themeOptions">
+            <div class="theme-option" data-theme="futuristic">
+                <span class="theme-color" style="background: linear-gradient(45deg, #00ffff, #0080ff);"></span>
+                <span>Futuristic</span>
+            </div>
+            <div class="theme-option" data-theme="steampunk">
+                <span class="theme-color" style="background: linear-gradient(45deg, #ff8800, #ffaa00);"></span>
+                <span>Steampunk</span>
+            </div>
+            <div class="theme-option" data-theme="hacker">
+                <span class="theme-color" style="background: linear-gradient(45deg, #00ff00, #88ff00);"></span>
+                <span>Hacker</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div class="notification-container" id="notifications"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/themes.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
